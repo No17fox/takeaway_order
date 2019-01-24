@@ -1,10 +1,12 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Tools {
 
   public void promptInput() {
-
     System.out.println("欢迎进入--吃什么鸭--点餐系统\n\n今日菜单：");
     printMenu();
     System.out.println("\n请输入您需要的菜品和数量（例如：黄焖鸡 x 1，冰峰 x 1）：");
@@ -24,6 +26,12 @@ public class Tools {
     for (Dish dish : menu) {
       System.out.println(dish.name + "--" + dish.price + "元");
     }
+  }
+
+  public void readUserInput() throws IOException {
+    InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+    String userInput = bufferedReader.readLine();
   }
 
 }
