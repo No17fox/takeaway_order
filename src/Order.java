@@ -4,8 +4,8 @@ import java.util.List;
 public class Order {
   public final List<OrderedDish> orderedDishes;
   private List<String> halfPriceDishes;
-  public double discount;
-  public String discountType;
+  private double discount;
+  private String discountType;
   public double originalPrice;
 
   public Order(List<OrderedDish> orderedDishes) {
