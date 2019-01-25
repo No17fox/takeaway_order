@@ -11,6 +11,6 @@ public class Main {
     Order order = new Order(orderedDishes);
     order.calcOriginalPrice();
     order.getBestCharge();
-    System.out.println(order.discount);
+    order.printOrder();
   }
 }
