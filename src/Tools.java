@@ -17,7 +17,7 @@ public class Tools {
     menu.add(new Dish("ITEM0001", "黄焖鸡", 18.00, true));
     menu.add(new Dish("ITEM0013", "肉夹馍", 6.00, false));
     menu.add(new Dish("ITEM0022", "凉皮", 8.00, true));
-    menu.add(new Dish("ITEM0030", "冰锋", 2.00, false));
+    menu.add(new Dish("ITEM0030", "冰峰", 2.00, false));
     return menu;
   }
 
@@ -51,7 +51,10 @@ public class Tools {
         if (itemInfor.length == 2 && itemInfor[0] != "" && itemInfor[1].matches("^\\d*$")) {
           String dishName = itemInfor[0];
           int dishCount = Integer.parseInt(itemInfor[1]);
-          orderedDishesList = getOrderedDishesList(menu, orderedDishesList, dishName, dishCount);
+          OrderedDish orderedDish = getOrderedDish(menu, dishName, dishCount);
+          if (orderedDish != null) {
+            orderedDishesList.add(orderedDish);
+          }
         } else {
           System.out.println("输入格式有误，请重新输入您需要的菜品和数量（例如：黄焖鸡 1，冰峰 1）：");
           userInput = readUserInput();
@@ -62,14 +65,13 @@ public class Tools {
     return orderedDishesList;
   }
 
-  public List<OrderedDish> getOrderedDishesList(List<Dish> menu, List<OrderedDish> orderedDishesList, String dishName, int dishCount) {
+  public OrderedDish getOrderedDish(List<Dish> menu, String dishName, int dishCount) {
     for (Dish dish : menu) {
       if (dish.name.equals(dishName)) {
-        OrderedDish orderedDish = new OrderedDish(dish.id, dish.name, dish.price, dish.isDiscounted, dishCount);
-        orderedDishesList.add(orderedDish);
+        return new OrderedDish(dish.id, dish.name, dish.price, dish.isDiscounted, dishCount);
       }
     }
-    return orderedDishesList;
+    return null;
   }
 
 }
