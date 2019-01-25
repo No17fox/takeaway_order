@@ -28,10 +28,14 @@ public class Tools {
     }
   }
 
-  public void readUserInput() throws IOException {
+  public void readUserInput() {
     InputStreamReader inputStreamReader = new InputStreamReader(System.in);
     BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-    String userInput = bufferedReader.readLine();
+    try {
+      String userInput = bufferedReader.readLine();
+    } catch (IOException e) {
+      System.out.println("Exception encountered: " + e);
+    }
   }
 
 }
