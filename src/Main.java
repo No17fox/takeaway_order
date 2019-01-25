@@ -10,6 +10,7 @@ public class Main {
     List<OrderedDish> orderedDishes = tools.parseInput(userInput, menu);
     Order order = new Order(orderedDishes);
     order.calcOriginalPrice();
-    System.out.println(order.originalPrice);
+    order.getBestCharge();
+    System.out.println(order.discount);
   }
 }
