@@ -8,6 +8,7 @@
     loadMenu()
     printMenu()
     readUserInput()
+    parseInput()
   }
   ```
 
@@ -20,15 +21,26 @@
     price: double
     isDiscounted: boolean
   }
+  
+  class OrderedDish extends Dish {
+    id: String
+    name: String
+    price: double
+    isDiscounted: boolean
+    count: int
+  }
   ```
 
 - 订单类
 
   ```
   class Order {
-    dishes: Map<dish, count>
+    orderedDishes: [OrderedDish]
     originalPrice: double
-    getOriginalPrice()
+    discountType: String
+    discount: double
+    halfPriceDishes: [String]
+    calcOriginalPrice()
     getBestCharge()
     printOrder()
   }	
@@ -37,7 +49,7 @@
 - 折扣类
 
   ```
-  class DiscountType {
+  class abustract DiscountType {
     type: String
     getDiscountPrice(order)
   }
@@ -50,6 +62,7 @@
   
   class HalfPrice extends DiscountType {
     type: String
+    halfPriceDishes: [String]
     getDiscountPrice(order)
   }
   ```
