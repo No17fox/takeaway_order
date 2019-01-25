@@ -2,9 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Tools {
 
@@ -33,20 +31,19 @@ public class Tools {
     InputStreamReader inputStreamReader = new InputStreamReader(System.in);
     BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
     try {
-      String userInput = bufferedReader.readLine();
-      return userInput;
+      return bufferedReader.readLine();
     } catch (IOException e) {
       System.out.println("Exception encountered: " + e);
       return null;
     }
   }
 
-  public Map parseInput(String userInput) {
-    Map orderedDishes = new HashMap();
+  public List<OrderedDish> parseInput(String userInput, List<Dish> menu) {
+    List<OrderedDish> orderedDishesList = new ArrayList<OrderedDish>();
     if (userInput == null || userInput.isEmpty()) {
       System.out.println("请输入您需要的菜品和数量（例如：黄焖鸡 1，冰峰 1）：");
       userInput = readUserInput();
-      orderedDishes = parseInput(userInput);
+      orderedDishesList = parseInput(userInput, menu);
     } else {
       String[] inputArray = userInput.split(",|，");
       for (String item : inputArray) {
@@ -54,15 +51,25 @@ public class Tools {
         if (itemInfor.length == 2 && itemInfor[0] != "" && itemInfor[1].matches("^\\d*$")) {
           String dishName = itemInfor[0];
           int dishCount = Integer.parseInt(itemInfor[1]);
-          orderedDishes.put(dishName, dishCount);
+          orderedDishesList = getOrderedDishesList(menu, orderedDishesList, dishName, dishCount);
         } else {
           System.out.println("输入格式有误，请重新输入您需要的菜品和数量（例如：黄焖鸡 1，冰峰 1）：");
           userInput = readUserInput();
-          orderedDishes = parseInput(userInput);
+          orderedDishesList = parseInput(userInput, menu);
         }
       }
     }
-    return orderedDishes;
+    return orderedDishesList;
+  }
+
+  public List<OrderedDish> getOrderedDishesList(List<Dish> menu, List<OrderedDish> orderedDishesList, String dishName, int dishCount) {
+    for (Dish dish : menu) {
+      if (dish.name.equals(dishName)) {
+        OrderedDish orderedDish = new OrderedDish(dish.id, dish.name, dish.price, dish.isDiscounted, dishCount);
+        orderedDishesList.add(orderedDish);
+      }
+    }
+    return orderedDishesList;
   }
 
 }

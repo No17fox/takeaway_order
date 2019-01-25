@@ -1,5 +1,4 @@
 import java.util.List;
-import java.util.Map;
 
 public class Main {
 
@@ -8,7 +7,9 @@ public class Main {
     List<Dish> menu = tools.loadMenu();
     tools.promptInput(menu);
     String userInput = tools.readUserInput();
-    Map orderedDishes = tools.parseInput(userInput);
-    System.out.println(orderedDishes);
+    List<OrderedDish> orderedDishes = tools.parseInput(userInput, menu);
+    Order order = new Order(orderedDishes);
+    order.calcOriginalPrice();
+    System.out.println(order.originalPrice);
   }
 }

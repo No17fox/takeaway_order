@@ -27,7 +27,8 @@
   ```
   class Order {
     dishes: Map<dish, count>
-    originalPrice: double  
+    originalPrice: double
+    getOriginalPrice()
     getBestCharge()
     printOrder()
   }	
