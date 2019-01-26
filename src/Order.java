@@ -40,16 +40,16 @@ public class Order {
   }
 
   public void printOrder() {
-    final String HEADER = "============= 订餐明细 =============";
+    final String HEADER = "\n============= 订餐明细 =============";
     final String DIVIDING_LINE = "-----------------------------------";
     final String FOOTER = "===================================";
     System.out.println(HEADER);
     for (OrderedDish orderedDish : this.orderedDishes) {
       System.out.println(orderedDish.name + " x " + orderedDish.count + " = " + orderedDish.price * orderedDish.count + "元");
     }
-    System.out.println(DIVIDING_LINE + "\n" + "使用优惠：");
+    System.out.println(DIVIDING_LINE + "\n使用优惠：");
     System.out.println(this.discountType + "(" + String.join("，", this.halfPriceDishes) + ")，省" + this.discount + "元");
-    final double discountPrice = this.originalPrice - this.discount;
-    System.out.println(DIVIDING_LINE + "\n总计：" + discountPrice + "元\n" + FOOTER);
+    final double DISCOUNT_PRICE = this.originalPrice - this.discount;
+    System.out.println(DIVIDING_LINE + "\n总计：" + DISCOUNT_PRICE + "元\n" + FOOTER);
   }
 }
