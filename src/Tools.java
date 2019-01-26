@@ -66,6 +66,7 @@ public class Tools {
           if (orderedDish != null) {
             orderedDishesList.add(orderedDish);
           }
+          System.out.println("\n下单成功！");
         } else {
           System.out.println("输入格式有误，请重新输入您需要的菜品和数量（例如：黄焖鸡 1，冰峰 1）：");
           userInput = readUserInput();
