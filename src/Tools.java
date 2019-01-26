@@ -9,6 +9,7 @@ public class Tools {
   public void promptInput(List<Dish> menu) {
     System.out.println("欢迎进入--吃什么鸭--点餐系统\n\n今日菜单：");
     printMenu(menu);
+    printDiscountType(menu);
     System.out.println("\n请输入您需要的菜品和数量（例如：黄焖鸡 1，冰峰 1）：");
   }
 
@@ -25,6 +26,16 @@ public class Tools {
     for (Dish dish : menu) {
       System.out.println(dish.name + "--" + dish.price + "元");
     }
+  }
+
+  public void printDiscountType(List<Dish> menu) {
+    List<String> halfPriceDishes = new ArrayList<String>();
+    for (Dish dish : menu) {
+      if (dish.isDiscounted) {
+        halfPriceDishes.add(dish.name);
+      }
+    }
+    System.out.println("\n今日优惠活动：\n1. 满30减6\n2. " + String.join("、", halfPriceDishes) + "半价");
   }
 
   public String readUserInput() {
