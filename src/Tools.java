@@ -24,15 +24,15 @@ public class Tools {
 
   public void printMenu(List<Dish> menu) {
     for (Dish dish : menu) {
-      System.out.println(dish.name + "--" + dish.price + "元");
+      System.out.println(dish.getName() + "--" + dish.getPrice() + "元");
     }
   }
 
   public void printDiscountType(List<Dish> menu) {
     List<String> halfPriceDishes = new ArrayList<String>();
     for (Dish dish : menu) {
-      if (dish.isDiscounted) {
-        halfPriceDishes.add(dish.name);
+      if (dish.isDiscounted()) {
+        halfPriceDishes.add(dish.getName());
       }
     }
     System.out.println("\n今日优惠活动：\n1. 满30减6\n2. " + String.join("、", halfPriceDishes) + "半价");
@@ -79,8 +79,8 @@ public class Tools {
 
   public OrderedDish getOrderedDish(List<Dish> menu, String dishName, int dishCount) {
     for (Dish dish : menu) {
-      if (dish.name.equals(dishName)) {
-        return new OrderedDish(dish.id, dish.name, dish.price, dish.isDiscounted, dishCount);
+      if (dish.getName().equals(dishName)) {
+        return new OrderedDish(dish.getId(), dish.getName(), dish.getPrice(), dish.isDiscounted(), dishCount);
       }
     }
     return null;

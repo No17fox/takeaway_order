@@ -18,7 +18,7 @@ public class Order {
 
   public void calcOriginalPrice() {
     for (OrderedDish orderedDish : orderedDishes) {
-      this.originalPrice += orderedDish.price * orderedDish.count;
+      this.originalPrice += orderedDish.getPrice() * orderedDish.getCount();
     }
   }
 
@@ -45,7 +45,7 @@ public class Order {
     final String FOOTER = "===================================";
     System.out.println(HEADER);
     for (OrderedDish orderedDish : this.orderedDishes) {
-      System.out.println(orderedDish.name + " x " + orderedDish.count + " = " + orderedDish.price * orderedDish.count + "元");
+      System.out.println(orderedDish.getName() + " x " + orderedDish.getCount() + " = " + orderedDish.getPrice() * orderedDish.getCount() + "元");
     }
     System.out.println(DIVIDING_LINE + "\n使用优惠：");
     System.out.println(this.discountType + "(" + String.join("，", this.halfPriceDishes) + ")，省" + this.discount + "元");
