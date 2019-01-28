@@ -15,13 +15,13 @@ public class HalfPrice extends DiscountType {
 
   @Override
   public double getDiscountPrice(Order order) {
-    double dicount = 0;
+    double discount = 0;
     for (Dish orderedDish : order.getOrderedDishes()) {
       if (orderedDish.isDiscounted()) {
-        dicount += orderedDish.getPrice() / 2 * orderedDish.getCount();
+        discount += orderedDish.getPrice() / 2 * orderedDish.getCount();
         halfPriceDishes.add(orderedDish.getName());
       }
     }
-    return dicount;
+    return discount;
   }
 }
