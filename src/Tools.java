@@ -59,14 +59,13 @@ public class Tools {
       String[] inputArray = userInput.split(",|，");
       for (String item : inputArray) {
         String[] itemInfor = item.split(" ");
-        if (itemInfor.length == 2 && itemInfor[0] != "" && itemInfor[1].matches("^\\d*$")) {
+        if (itemInfor.length == 2 && !itemInfor[0].equals("") && itemInfor[1].matches("^\\d*$")) {
           String dishName = itemInfor[0];
           int dishCount = Integer.parseInt(itemInfor[1]);
           OrderedDish orderedDish = getOrderedDish(menu, dishName, dishCount);
           if (orderedDish != null) {
             orderedDishesList.add(orderedDish);
           }
-          System.out.println("\n下单成功！");
         } else {
           System.out.println("输入格式有误，请重新输入您需要的菜品和数量（例如：黄焖鸡 1，冰峰 1）：");
           userInput = readUserInput();
@@ -74,6 +73,7 @@ public class Tools {
         }
       }
     }
+    System.out.println("\n下单成功！");
     return orderedDishesList;
   }
 
