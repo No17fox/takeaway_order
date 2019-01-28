@@ -2,13 +2,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-  public final List<OrderedDish> orderedDishes;
+  public final List<Dish> orderedDishes;
   private List<String> halfPriceDishes;
   private double discount;
   private String discountType;
   public double originalPrice;
 
-  public Order(List<OrderedDish> orderedDishes) {
+  public Order(List<Dish> orderedDishes) {
     this.orderedDishes = orderedDishes;
     this.originalPrice = 0;
     this.discountType = "";
@@ -17,7 +17,7 @@ public class Order {
   }
 
   public void calcOriginalPrice() {
-    for (OrderedDish orderedDish : orderedDishes) {
+    for (Dish orderedDish : orderedDishes) {
       this.originalPrice += orderedDish.getPrice() * orderedDish.getCount();
     }
   }
@@ -44,7 +44,7 @@ public class Order {
     final String DIVIDING_LINE = "-----------------------------------";
     final String FOOTER = "===================================";
     System.out.println(HEADER);
-    for (OrderedDish orderedDish : this.orderedDishes) {
+    for (Dish orderedDish : this.orderedDishes) {
       System.out.println(orderedDish.getName() + " x " + orderedDish.getCount() + " = " + orderedDish.getPrice() * orderedDish.getCount() + "元");
     }
     System.out.println(DIVIDING_LINE + "\n使用优惠：");

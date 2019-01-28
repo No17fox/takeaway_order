@@ -7,7 +7,7 @@ public class Main {
     List<Dish> menu = tools.loadMenu();
     tools.promptInput(menu);
     String userInput = tools.readUserInput();
-    List<OrderedDish> orderedDishes = tools.parseInput(userInput, menu);
+    List<Dish> orderedDishes = tools.parseInput(userInput, menu);
     Order order = new Order(orderedDishes);
     order.calcOriginalPrice();
     order.getBestCharge();

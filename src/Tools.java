@@ -49,8 +49,8 @@ public class Tools {
     }
   }
 
-  public List<OrderedDish> parseInput(String userInput, List<Dish> menu) {
-    List<OrderedDish> orderedDishesList = new ArrayList<OrderedDish>();
+  public List<Dish> parseInput(String userInput, List<Dish> menu) {
+    List<Dish> orderedDishesList = new ArrayList<Dish>();
     if (userInput == null || userInput.isEmpty()) {
       System.out.println("请输入您需要的菜品和数量（例如：黄焖鸡 1，冰峰 1）：");
       userInput = readUserInput();
@@ -62,7 +62,7 @@ public class Tools {
         if (itemInfor.length == 2 && !itemInfor[0].equals("") && itemInfor[1].matches("^\\d*$")) {
           String dishName = itemInfor[0];
           int dishCount = Integer.parseInt(itemInfor[1]);
-          OrderedDish orderedDish = getOrderedDish(menu, dishName, dishCount);
+          Dish orderedDish = getOrderedDish(menu, dishName, dishCount);
           if (orderedDish != null) {
             orderedDishesList.add(orderedDish);
           }
@@ -77,10 +77,12 @@ public class Tools {
     return orderedDishesList;
   }
 
-  public OrderedDish getOrderedDish(List<Dish> menu, String dishName, int dishCount) {
+  public Dish getOrderedDish(List<Dish> menu, String dishName, int dishCount) {
     for (Dish dish : menu) {
       if (dish.getName().equals(dishName)) {
-        return new OrderedDish(dish.getId(), dish.getName(), dish.getPrice(), dish.isDiscounted(), dishCount);
+        Dish orderedDish = new Dish(dish.getId(), dish.getName(), dish.getPrice(), dish.isDiscounted());
+        orderedDish.setCount(dishCount);
+        return orderedDish;
       }
     }
     return null;

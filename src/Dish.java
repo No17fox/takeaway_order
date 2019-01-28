@@ -3,6 +3,7 @@ public class Dish {
   private final String name;
   private final double price;
   private final boolean isDiscounted;
+  private int count;
 
   public Dish(String id, String name, double price, boolean isDiscounted) {
     this.id = id;
@@ -25,5 +26,13 @@ public class Dish {
 
   public boolean isDiscounted() {
     return isDiscounted;
+  }
+
+  public int getCount() {
+    return count;
+  }
+
+  public void setCount(int count) {
+    this.count = count;
   }
 }

@@ -20,13 +20,6 @@
     name: String
     price: double
     isDiscounted: boolean
-  }
-  
-  class OrderedDish extends Dish {
-    id: String
-    name: String
-    price: double
-    isDiscounted: boolean
     count: int
   }
   ```
@@ -35,7 +28,7 @@
 
   ```
   class Order {
-    orderedDishes: [OrderedDish]
+    orderedDishes: [Dish]
     originalPrice: double
     discountType: String
     discount: double
