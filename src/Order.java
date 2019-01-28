@@ -38,12 +38,12 @@ public class Order {
     if (reductionResult == 0 && halfPriceResult == 0) {
       this.discountType = "无可用优惠";
     } else if (reductionResult >= halfPriceResult) {
-      this.discountType = reduction.type;
+      this.discountType = reduction.getType();
       this.discount = reductionResult;
     } else {
-      this.discountType = halfPrice.type;
+      this.discountType = halfPrice.getType();
       this.discount = halfPriceResult;
-      this.halfPriceDishes = halfPrice.halfPriceDishes;
+      this.halfPriceDishes = halfPrice.getHalfPriceDishes();
     }
   }
 

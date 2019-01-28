@@ -1,8 +1,12 @@
 public abstract class DiscountType {
-  public final String type;
+  private final String type;
 
   public DiscountType(String type) {
     this.type = type;
+  }
+
+  public String getType() {
+    return type;
   }
 
   public abstract double getDiscountPrice(Order order);
