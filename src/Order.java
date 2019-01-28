@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-  public final List<Dish> orderedDishes;
+  private final List<Dish> orderedDishes;
   private List<String> halfPriceDishes;
   private double discount;
   private String discountType;
-  public double originalPrice;
+  private double originalPrice;
 
   public Order(List<Dish> orderedDishes) {
     this.orderedDishes = orderedDishes;
@@ -14,6 +14,14 @@ public class Order {
     this.discountType = "";
     this.discount = 0;
     this.halfPriceDishes = new ArrayList<String>();
+  }
+
+  public List<Dish> getOrderedDishes() {
+    return orderedDishes;
+  }
+
+  public double getOriginalPrice() {
+    return originalPrice;
   }
 
   public void calcOriginalPrice() {

@@ -7,7 +7,7 @@ public class Reduction extends DiscountType {
   @Override
   public double getDiscountPrice(Order order) {
     double discount = 0;
-    if (order.originalPrice >= 30) {
+    if (order.getOriginalPrice() >= 30) {
       discount = 6;
     }
     return discount;
