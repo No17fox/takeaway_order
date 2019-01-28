@@ -22,13 +22,13 @@ public class Tools {
     return menu;
   }
 
-  public void printMenu(List<Dish> menu) {
+  private void printMenu(List<Dish> menu) {
     for (Dish dish : menu) {
       System.out.println(dish.getName() + "--" + dish.getPrice() + "元");
     }
   }
 
-  public void printDiscountType(List<Dish> menu) {
+  private void printDiscountType(List<Dish> menu) {
     List<String> halfPriceDishes = new ArrayList<String>();
     for (Dish dish : menu) {
       if (dish.isDiscounted()) {
@@ -77,7 +77,7 @@ public class Tools {
     return orderedDishesList;
   }
 
-  public Dish getOrderedDish(List<Dish> menu, String dishName, int dishCount) {
+  private Dish getOrderedDish(List<Dish> menu, String dishName, int dishCount) {
     for (Dish dish : menu) {
       if (dish.getName().equals(dishName)) {
         Dish orderedDish = new Dish(dish.getId(), dish.getName(), dish.getPrice(), dish.isDiscounted());
