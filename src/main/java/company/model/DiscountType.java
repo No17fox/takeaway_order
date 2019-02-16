@@ -1,3 +1,5 @@
+package main.java.company.model;
+
 public abstract class DiscountType {
   private final String type;
 

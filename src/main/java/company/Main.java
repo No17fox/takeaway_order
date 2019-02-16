@@ -1,3 +1,9 @@
+package main.java.company;
+
+import main.java.company.model.Dish;
+import main.java.company.model.Order;
+import main.java.company.tools.Tools;
+
 import java.util.List;
 
 public class Main {

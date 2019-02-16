@@ -1,3 +1,7 @@
+package main.java.company.tools;
+
+import main.java.company.model.Dish;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

@@ -1,3 +1,5 @@
+package main.java.company.model;
+
 public class Dish {
   private final String id;
   private final String name;

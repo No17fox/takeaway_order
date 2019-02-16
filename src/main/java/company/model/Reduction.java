@@ -1,3 +1,5 @@
+package main.java.company.model;
+
 public class Reduction extends DiscountType {
 
   public Reduction() {
