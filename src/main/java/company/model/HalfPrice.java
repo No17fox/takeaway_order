@@ -12,7 +12,7 @@ public class HalfPrice extends DiscountType {
     }
 
     public List<String> getHalfPriceDishes() {
-        return halfPriceDishes;
+        return this.halfPriceDishes;
     }
 
     @Override
@@ -21,7 +21,7 @@ public class HalfPrice extends DiscountType {
         for (Dish orderedDish : order.getOrderedDishes()) {
             if (orderedDish.isDiscounted()) {
                 discount += orderedDish.getPrice() / 2 * orderedDish.getCount();
-                halfPriceDishes.add(orderedDish.getName());
+                this.halfPriceDishes.add(orderedDish.getName());
             }
         }
         return discount;

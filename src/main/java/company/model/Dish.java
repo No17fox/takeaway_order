@@ -15,23 +15,23 @@ public class Dish {
     }
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public double getPrice() {
-        return price;
+        return this.price;
     }
 
     public boolean isDiscounted() {
-        return isDiscounted;
+        return this.isDiscounted;
     }
 
     public int getCount() {
-        return count;
+        return this.count;
     }
 
     public void setCount(int count) {

@@ -19,11 +19,11 @@ public class Order {
     }
 
     public List<Dish> getOrderedDishes() {
-        return orderedDishes;
+        return this.orderedDishes;
     }
 
     public double getOriginalPrice() {
-        return originalPrice;
+        return this.originalPrice;
     }
 
     public void calcOriginalPrice() {
