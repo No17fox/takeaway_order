@@ -32,34 +32,28 @@ public class Order {
     }
   }
 
-  public void getBestCharge() {
-    Reduction reduction = new Reduction();
-    HalfPrice halfPrice = new HalfPrice();
-    double reductionResult = reduction.getDiscountPrice(this);
-    double halfPriceResult = halfPrice.getDiscountPrice(this);
-    if (reductionResult == 0 && halfPriceResult == 0) {
-      this.discountType = "无可用优惠";
-    } else if (reductionResult >= halfPriceResult) {
-      this.discountType = reduction.getType();
-      this.discount = reductionResult;
-    } else {
-      this.discountType = halfPrice.getType();
-      this.discount = halfPriceResult;
-      this.halfPriceDishes = halfPrice.getHalfPriceDishes();
-    }
+  public String getDiscountType() {
+    return this.discountType;
   }
 
-  public void printOrder() {
-    final String HEADER = "\n============= 订餐明细 =============";
-    final String DIVIDING_LINE = "-----------------------------------";
-    final String FOOTER = "===================================";
-    System.out.println(HEADER);
-    for (Dish orderedDish : this.orderedDishes) {
-      System.out.println(orderedDish.getName() + " x " + orderedDish.getCount() + " = " + orderedDish.getPrice() * orderedDish.getCount() + "元");
-    }
-    System.out.println(DIVIDING_LINE + "\n使用优惠：");
-    System.out.println(this.discountType + "(" + String.join("，", this.halfPriceDishes) + ")，省" + this.discount + "元");
-    final double DISCOUNT_PRICE = this.originalPrice - this.discount;
-    System.out.println(DIVIDING_LINE + "\n总计：" + DISCOUNT_PRICE + "元\n" + FOOTER);
+  public void setDiscountType(String discountType) {
+    this.discountType = discountType;
   }
+
+  public double getDiscount() {
+    return this.discount;
+  }
+
+  public void setDiscount(double discount) {
+    this.discount = discount;
+  }
+
+  public List<String> getHalfPriceDishes() {
+    return this.halfPriceDishes;
+  }
+
+  public void setHalfPriceDishes(List<String> halfPriceDishes) {
+    this.halfPriceDishes = halfPriceDishes;
+  }
+
 }

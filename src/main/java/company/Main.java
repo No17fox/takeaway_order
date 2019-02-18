@@ -1,22 +1,11 @@
 package main.java.company;
 
-import main.java.company.model.Dish;
-import main.java.company.model.Order;
-import main.java.company.tools.Tools;
-
-import java.util.List;
+import main.java.company.service.Service;
 
 public class Main {
 
   public static void main(String[] args) {
-    Tools tools = new Tools();
-    List<Dish> menu = tools.loadMenu();
-    tools.promptInput(menu);
-    String userInput = tools.readUserInput();
-    List<Dish> orderedDishes = tools.parseInput(userInput, menu);
-    Order order = new Order(orderedDishes);
-    order.calcOriginalPrice();
-    order.getBestCharge();
-    order.printOrder();
+    Service service = new Service();
+    service.orderDishes();
   }
 }
